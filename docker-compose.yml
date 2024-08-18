@@ -1,0 +1,14 @@
+﻿version: '3.4'
+services:
+  atskungfuwebapi:
+    image: ${DOCKER_REGISTRY-}WebApplication2
+    build:
+      context: .
+      dockerfile: WebApplication2/Dockerfile
+    ports:
+      - '5000:80'
+    expose:
+      - '80'
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+    command: ["dotnet", "WebApplication2.dll"]
